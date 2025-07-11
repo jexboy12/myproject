@@ -1,26 +1,16 @@
 <nav x-data="{ open: false, dropdowns: { profile: false, prima: false, kegiatan: false, layanan: false, dokumentasi: false } }"
      class="bg-white border-b border-gray-200 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {{-- Mengubah struktur flex untuk menempatkan menu di kiri dan hamburger di kanan --}}
         <div class="flex h-16 items-center justify-between">
-            {{-- Menu Desktop (kiri) dan Logo (jika ada) --}}
-            {{-- Tambahkan div untuk mengelompokkan logo (jika ada) dan menu desktop --}}
             <div class="flex items-center">
-                {{-- Anda bisa menambahkan logo di sini jika diinginkan untuk desktop, misalnya: --}}
-                {{-- <div class="flex-shrink-0">
-                    <a href="{{ route('home') }}">
-                        <img src="{{ asset('img/logo-small.png') }}" alt="Logo" class="h-10 w-auto">
-                    </a>
-                </div> --}}
-
-                <div class="hidden sm:flex items-center"> {{-- Menghilangkan flex-grow dan justify-center untuk menempatkan menu di kiri --}}
-                    <div class="relative px-6 border-l border-gray-300"> {{-- Gunakan px-6 untuk padding di kedua sisi --}}
+                <div class="hidden sm:flex items-center">
+                    <div class="relative px-6 border-l border-gray-300">
                         <a href="{{ route('home') }}" class="inline-flex items-center text-gray-800 hover:text-green-600 text-base font-medium transition {{ request()->routeIs('home') ? 'text-green-700 font-semibold' : '' }}">
                             Home
                         </a>
                     </div>
 
-                    <div class="relative group px-6 border-l border-gray-300"> {{-- Gunakan px-6 untuk padding di kedua sisi --}}
+                    <div class="relative group px-6 border-l border-gray-300">
                         <button @mouseenter="dropdowns.profile = true" @mouseleave="dropdowns.profile = false"
                                 class="inline-flex items-center text-gray-800 hover:text-green-600 text-base font-medium transition {{ request()->routeIs('profile.*') ? 'text-green-700 font-semibold' : '' }}">
                             Profile
@@ -38,7 +28,7 @@
                         </div>
                     </div>
 
-                    <div class="relative group px-6 border-l border-gray-300"> {{-- Gunakan px-6 untuk padding di kedua sisi --}}
+                    <div class="relative group px-6 border-l border-gray-300">
                         <button @mouseenter="dropdowns.prima = true" @mouseleave="dropdowns.prima = false"
                                 class="inline-flex items-center text-gray-800 hover:text-green-600 text-base font-medium transition {{ request()->routeIs('prima.*') ? 'text-green-700 font-semibold' : '' }}">
                             Prima
@@ -54,7 +44,7 @@
                         </div>
                     </div>
 
-                    <div class="relative group px-6 border-l border-gray-300"> {{-- Gunakan px-6 untuk padding di kedua sisi --}}
+                    <div class="relative group px-6 border-l border-gray-300">
                         <button @mouseenter="dropdowns.kegiatan = true" @mouseleave="dropdowns.kegiatan = false"
                                 class="inline-flex items-center text-gray-800 hover:text-green-600 text-base font-medium transition {{ request()->routeIs('kegiatan.*') ? 'text-green-700 font-semibold' : '' }}">
                             Kegiatan
@@ -70,7 +60,7 @@
                         </div>
                     </div>
 
-                    <div class="relative group px-6 border-l border-gray-300"> {{-- Gunakan px-6 untuk padding di kedua sisi --}}
+                    <div class="relative group px-6 border-l border-gray-300">
                         <button @mouseenter="dropdowns.layanan = true" @mouseleave="dropdowns.layanan = false"
                                 class="inline-flex items-center text-gray-800 hover:text-green-600 text-base font-medium transition {{ request()->routeIs('layanan.*') ? 'text-green-700 font-semibold' : '' }}">
                             Layanan
@@ -85,7 +75,14 @@
                         </div>
                     </div>
 
-                    <div class="relative group px-6 border-l border-gray-300"> {{-- Gunakan px-6 untuk padding di kedua sisi --}}
+                    <div class="relative px-6 border-l border-gray-300">
+                        {{-- INI BAGIAN YANG DIPERBAIKI --}}
+                        <a href="{{ route('ragam.info') }}" class="inline-flex items-center text-gray-800 hover:text-green-600 text-base font-medium transition {{ request()->routeIs('ragam.info') ? 'text-green-700 font-semibold' : '' }}">
+                            Ragam Info
+                        </a>
+                    </div>
+
+                    <div class="relative group px-6 border-l border-gray-300">
                         <button @mouseenter="dropdowns.dokumentasi = true" @mouseleave="dropdowns.dokumentasi = false"
                                 class="inline-flex items-center text-gray-800 hover:text-green-600 text-base font-medium transition {{ request()->routeIs('dokumentasi.*') ? 'text-green-700 font-semibold' : '' }}">
                             Dokumentasi
@@ -99,7 +96,7 @@
                         </div>
                     </div>
 
-                    <div class="relative px-6 border-l border-gray-300"> {{-- Gunakan px-6 untuk padding di kedua sisi --}}
+                    <div class="relative px-6 border-l border-gray-300">
                         <a href="{{ route('kontak') }}" class="inline-flex items-center text-gray-800 hover:text-green-600 text-base font-medium transition {{ request()->routeIs('kontak') ? 'text-green-700 font-semibold' : '' }}">
                             Kontak
                         </a>
@@ -107,8 +104,7 @@
                 </div>
             </div>
 
-            {{-- Tombol Hamburger Mobile --}}
-            {{-- Pastikan ini tetap di sisi kanan --}}
+            {{-- Mobile hamburger button --}}
             <div class="-mr-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -120,7 +116,7 @@
         </div>
     </div>
 
-    {{-- Menu Mobile --}}
+    {{-- Mobile Menu --}}
     <div :class="{ 'block': open, 'hidden': !open }" class="sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')" class="border-t border-gray-300">Home</x-nav-link>
@@ -176,8 +172,11 @@
                     <x-nav-link href="{{ route('layanan.muallaf') }}" :active="request()->routeIs('layanan.muallaf')">Layanan jadi Muallaf</x-nav-link>
                 </div>
             </details>
+            
+            {{-- INI BAGIAN YANG DIPERBAIKI --}}
+            <x-nav-link href="{{ route('ragam.info') }}" :active="request()->routeIs('ragam.info')" class="border-t border-gray-300">Ragam Info</x-nav-link>
 
-            {{-- Donasi Dropdown (Mobile) --}}
+            {{-- Dokumentasi Dropdown (Mobile) --}}
             <details class="w-full border-t border-gray-300" x-data="{ open: false }" @toggle="open = $el.open">
                 <summary class="cursor-pointer py-2 px-4 appearance-none flex items-center justify-between w-full {{ request()->routeIs('dokumentasi.*') ? 'text-green-700 font-semibold bg-gray-100' : '' }}">
                     Dokumentasi
