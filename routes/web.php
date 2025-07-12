@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\AdminRagamInfoController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\RagamInfoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DokumentasiController;
+use App\Http\Controllers\PublicProfileController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminGalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', function () {
-    return view('home', ['title' => 'Home Page']);
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/profile', function () {
     return view('profile.sejarah', ['title' => 'Profil Masjid']);
@@ -39,7 +41,10 @@ Route::get('/kontak', function () {
 // --- Rute untuk Ragam Info (Publik) ---
 Route::get('/ragam-info', [RagamInfoController::class, 'index'])->name('ragam.info');
 Route::get('/ragam-info/{ragamInfo}', [RagamInfoController::class, 'show'])->name('ragam.info.show');
+Route::get('/profile', [PublicProfileController::class, 'index'])->name('profile');
 
+// --- Rute untuk Galeri Video (Publik) ---
+Route::get('/dokumentasi/video', [DokumentasiController::class, 'index'])->name('dokumentasi.video');
 
 // --- Rute untuk Submenu (Publik) ---
 Route::view('/profile/sejarah', 'profile.sejarah')->name('profile.sejarah');
@@ -55,7 +60,6 @@ Route::view('/kegiatan/ibu-ibu', 'kegiatan.ibu-ibu')->name('kegiatan.ibu-ibu');
 Route::view('/kegiatan/hari-besar', 'kegiatan.hari-besar')->name('kegiatan.hari-besar');
 Route::view('/layanan/akad-nikah', 'layanan.akad-nikah')->name('layanan.akad-nikah');
 Route::view('/layanan/muallaf', 'layanan.muallaf')->name('layanan.muallaf');
-Route::view('/dokumentasi/video', 'dokumentasi.video')->name('dokumentasi.video');
 Route::view('/beranda-baru', 'halaman-beranda')->name('halaman.beranda.baru');
 
 
@@ -69,6 +73,12 @@ Route::view('/beranda-baru', 'halaman-beranda')->name('halaman.beranda.baru');
 Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     // Dasbor utama admin
     Route::get('/dashboard', [AdminRagamInfoController::class, 'index'])->name('dashboard');
+    // Rute untuk manajemen Galeri
+    Route::prefix('admin/gallery')->name('admin.gallery.')->group(function () {
+    Route::get('/', [AdminGalleryController::class, 'index'])->name('index');
+    Route::post('/', [AdminGalleryController::class, 'store'])->name('store');
+    Route::delete('/{galleryPost}', [AdminGalleryController::class, 'destroy'])->name('destroy');
+    });
 
     // Grup untuk semua rute manajemen Ragam Info
     Route::prefix('admin/ragam-info')->name('admin.ragam-info.')->group(function () {
@@ -82,9 +92,9 @@ Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
 
 // --- Rute untuk semua pengguna yang sudah login (termasuk admin) ---
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/admin/profile', [AdminProfileController::class, 'edit'])->name('admin.profile.edit');
+    Route::patch('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
+    Route::delete('/admin/profile', [AdminProfileController::class, 'destroy'])->name('admin.profile.destroy');
 });
 
 // Ini memuat semua rute bawaan untuk login, register, lupa password, dll.

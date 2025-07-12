@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" scrossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.3/photoswipe.min.css">
 
     {{-- Ini mengimpor Inter dengan ketebalan 400 (normal), 500 (medium), 600 (semibold), 700 (bold) --}}
 
@@ -67,7 +68,7 @@
         }
     </style>
 </head>
-<body class="h-full font-sans bg-green-200">
+<body class="h-full font-sans bg-green-200 overflow-x-hidden">
 
 <div class="min-h-full">
 
@@ -165,5 +166,9 @@
         });
     });
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.3/photoswipe.umd.min.js">
+</script>
+
 </body>
 </html>
