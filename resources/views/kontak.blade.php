@@ -57,7 +57,7 @@
             <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-green-600 pb-2 text-center mt-12">Lokasi Kami di Peta</h2>
             <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.4587527287945!2d106.88158737355612!3d-6.334568961977157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed1e924a9eb3%3A0x2ccdfbaab03ea20a!2sMasjid%20Jami%20Al%20Ikhlas.!5e0!3m2!1sid!2sid!4v1751962007066!5m2!1sid!2sid"  {{-- Ganti dengan link embed Google Maps yang benar --}}
+                    src="https://www.google.com/maps/embed?pb=!4v1754740874157!6m8!1m7!1sNhWdiloUu1QChSOju5UKBg!2m2!1d-6.334815108473601!2d106.8840513628845!3f336.221031332427!4f-1.700652127285423!5f0.7820865974627469"  {{-- Ganti dengan link embed Google Maps yang benar --}}
                     width="100%"
                     height="450"
                     style="border:0;"

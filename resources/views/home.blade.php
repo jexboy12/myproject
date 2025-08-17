@@ -49,7 +49,7 @@
 
    <section class="bg-gray-100 p-8 rounded-xl shadow-xl mt-8">
         <div class="container mx-auto px-4">
-         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center">Company Profile: </h2>   
+         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center">Mosque Profile: </h2>   
     <section class="mt-12 flex justify-center">
         <video class="rounded-xl shadow-lg w-full max-w-4xl" controls>
             <source src="{{ asset('videos/company-profile.mp4') }}" type="video/mp4">

@@ -8,7 +8,7 @@
         <div class="bg-white p-8 rounded-xl shadow-xl mt-8">
             <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 text-center">Kegiatan Unggulan Kami</h2>
             <p class="text-lg text-gray-700 text-center mb-10 max-w-3xl mx-auto">
-                Selain 
+                Masjid Jami' Al-Ikhlash selain memperingati Hari Besar, Santunan anak Yatim, piatu, dan Duafa. ada kegiatan yang dilaksanakan secara rutin guna membina jamaah dalam aspek keagamaan dan sosial. 
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -39,10 +39,10 @@
                 {{-- Kartu Kegiatan Peringatan Hari Besar Islam --}}
                 <a href="{{ route('kegiatan.hari-besar') }}" class="block">
                     <div class="bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-                        <img src="{{ asset('img/hari-besar.jpg') }}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E5E7EB/1F2937?text=Hari+Besar';" alt="Gambar Hari Besar Islam" class="w-full h-48 object-cover rounded-t-xl">
+                        <img src="{{ asset('img/hari-besar.jpg') }}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E5E7EB/1F2937?text=Gambar';" alt="Gambar Hari Besar Islam" class="w-full h-48 object-cover rounded-t-xl">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Peringatan Hari Besar Islam</h3>
-                            <p class="text-gray-700 text-sm">Berbagai acara spesial untuk memperingati hari-hari besar dalam Islam.</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Pengajian Bulanan</h3>
+                            <p class="text-gray-700 text-sm">Pengajian yang dilaksanakan pada bulan-bulan tertentu.</p>
                             <span class="mt-4 inline-block text-green-600 hover:text-green-700 font-semibold">Baca Selengkapnya &rarr;</span>
                         </div>
                     </div>

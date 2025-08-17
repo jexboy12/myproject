@@ -3,22 +3,26 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('home') }}"> {{-- Ini mungkin tetap ke home publik, atau ke dashboard admin jika admin login --}}
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    {{-- LINK DASHBOARD (Sekarang ke Profil Admin) --}}
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    {{-- INI ADALAH LINK BARU YANG DITAMBAHKAN --}}
+                    {{-- LINK MANAJEMEN RAGAM INFO (Baru) --}}
+                    <x-nav-link :href="route('admin.ragam-info.index')" :active="request()->routeIs('admin.ragam-info.index')">
+                        {{ __('Manajemen Ragam Info') }}
+                    </x-nav-link>
+
+                    {{-- LINK MANAJEMEN GALERI --}}
                     <x-nav-link :href="route('admin.gallery.index')" :active="request()->routeIs('admin.gallery.index')">
                         {{ __('Manajemen Galeri') }}
                     </x-nav-link>
-                    {{-- BATAS PENAMBAHAN --}}
-
                 </div>
             </div>
 
@@ -37,6 +41,7 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        {{-- LINK PROFILE DI DROPDOWN (ini bisa tetap atau disesuaikan jika ingin mengarah ke /admin/profile umum) --}}
                         <x-dropdown-link :href="route('admin.profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
@@ -65,17 +70,23 @@
         </div>
     </div>
 
+    {{-- Mobile Menu --}}
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+            {{-- LINK DASHBOARD MOBILE --}}
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-             {{-- INI ADALAH LINK BARU UNTUK TAMPILAN MOBILE --}}
-             <x-responsive-nav-link :href="route('admin.gallery.index')" :active="request()->routeIs('admin.gallery.index')">
+            {{-- LINK MANAJEMEN RAGAM INFO MOBILE --}}
+            <x-responsive-nav-link :href="route('admin.ragam-info.index')" :active="request()->routeIs('admin.ragam-info.index')">
+                {{ __('Manajemen Ragam Info') }}
+            </x-responsive-nav-link>
+
+            {{-- LINK MANAJEMEN GALERI MOBILE --}}
+            <x-responsive-nav-link :href="route('admin.gallery.index')" :active="request()->routeIs('admin.gallery.index')">
                 {{ __('Manajemen Galeri') }}
             </x-responsive-nav-link>
-            {{-- BATAS PENAMBAHAN --}}
         </div>
 
         <div class="pt-4 pb-1 border-t border-gray-200">
@@ -85,6 +96,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                {{-- LINK PROFILE MOBILE DI DROPDOWN --}}
                 <x-responsive-nav-link :href="route('admin.profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>

@@ -55,7 +55,7 @@
                         <div x-show="dropdowns.kegiatan" x-transition class="absolute top-full left-0 mt-0 w-56 bg-white border rounded-md shadow-lg z-50 py-2">
                             <x-nav-link href="{{ route('kegiatan.kuliah-subuh') }}" :active="request()->routeIs('kegiatan.kuliah-subuh')">Kuliah Subuh</x-nav-link>
                             <x-nav-link href="{{ route('kegiatan.ibu-ibu') }}" :active="request()->routeIs('kegiatan.ibu-ibu')">Pengajian Ibu-ibu</x-nav-link>
-                            <x-nav-link href="{{ route('kegiatan.hari-besar') }}" :active="request()->routeIs('kegiatan.hari-besar')">Hari Besar</x-nav-link>
+                            <x-nav-link href="{{ route('kegiatan.hari-besar') }}" :active="request()->routeIs('kegiatan.hari-besar')">Pengajian Bulanan</x-nav-link>
                         </div>
                     </div>
 
@@ -150,7 +150,7 @@
                 <div class="pl-4 space-y-1 mt-1">
                     <x-nav-link href="{{ route('kegiatan.kuliah-subuh') }}" :active="request()->routeIs('kegiatan.kuliah-subuh')">Kuliah Subuh</x-nav-link>
                     <x-nav-link href="{{ route('kegiatan.ibu-ibu') }}" :active="request()->routeIs('kegiatan.ibu-ibu')">Pengajian Ibu-ibu</x-nav-link>
-                    <x-nav-link href="{{ route('kegiatan.hari-besar') }}" :active="request()->routeIs('kegiatan.hari-besar')">Hari Besar</x-nav-link>
+                    <x-nav-link href="{{ route('kegiatan.hari-besar') }}" :active="request()->routeIs('kegiatan.hari-besar')">Pengajian Bulanan</x-nav-link>
                 </div>
             </details>
             <details class="w-full border-t border-gray-300" x-data="{ open: false }" @toggle="open = $el.open">

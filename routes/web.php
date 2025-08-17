@@ -69,32 +69,42 @@ Route::view('/beranda-baru', 'halaman-beranda')->name('halaman.beranda.baru');
 |--------------------------------------------------------------------------
 */
 
+// --- Rute untuk semua pengguna yang sudah login (termasuk admin) ---
+// Ini adalah rute profil umum yang bisa diakses oleh setiap pengguna yang login (termasuk admin)
+// Jika /admin/profile tidak lagi diperlukan karena admin akan menggunakan /dashboard untuk profilnya,
+// maka bagian ini bisa dihapus atau disesuaikan. Untuk saat ini, kita anggap tetap ada untuk non-admin.
+Route::middleware('auth')->group(function () {
+    Route::get('/admin/profile', [AdminProfileController::class, 'edit'])->name('admin.profile.edit');
+    Route::patch('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
+    Route::delete('/admin/profile', [AdminProfileController::class, 'destroy'])->name('admin.profile.destroy');
+});
+
+
 // --- Rute yang hanya bisa diakses oleh ADMIN ---
 Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
-    // Dasbor utama admin
-    Route::get('/dashboard', [AdminRagamInfoController::class, 'index'])->name('dashboard');
+    // Dashboard utama admin (sekarang menjadi halaman profil admin)
+    // URI /dashboard kini mengarah ke halaman profil admin.
+    Route::get('/dashboard', [AdminProfileController::class, 'edit'])->name('dashboard');
+    Route::patch('/dashboard/profile', [AdminProfileController::class, 'update'])->name('dashboard.profile.update'); // Update profile via new dashboard path
+    Route::delete('/dashboard/profile', [AdminProfileController::class, 'destroy'])->name('dashboard.profile.destroy'); // Delete profile via new dashboard path
+
     // Rute untuk manajemen Galeri
     Route::prefix('admin/gallery')->name('admin.gallery.')->group(function () {
-    Route::get('/', [AdminGalleryController::class, 'index'])->name('index');
-    Route::post('/', [AdminGalleryController::class, 'store'])->name('store');
-    Route::delete('/{galleryPost}', [AdminGalleryController::class, 'destroy'])->name('destroy');
+        Route::get('/', [AdminGalleryController::class, 'index'])->name('index');
+        Route::post('/', [AdminGalleryController::class, 'store'])->name('store');
+        Route::delete('/{galleryPost}', [AdminGalleryController::class, 'destroy'])->name('destroy');
     });
 
     // Grup untuk semua rute manajemen Ragam Info
+    // Rute index Ragam Info dipindahkan ke sini
     Route::prefix('admin/ragam-info')->name('admin.ragam-info.')->group(function () {
+        Route::get('/', [AdminRagamInfoController::class, 'index'])->name('index'); // New path for Ragam Info Management
         Route::get('/create', [AdminRagamInfoController::class, 'create'])->name('create');
         Route::post('/store', [AdminRagamInfoController::class, 'store'])->name('store');
         Route::get('/{ragamInfo}/edit', [AdminRagamInfoController::class, 'edit'])->name('edit');
         Route::patch('/{ragamInfo}', [AdminRagamInfoController::class, 'update'])->name('update');
         Route::delete('/{ragamInfo}', [AdminRagamInfoController::class, 'destroy'])->name('destroy');
     });
-});
-
-// --- Rute untuk semua pengguna yang sudah login (termasuk admin) ---
-Route::middleware('auth')->group(function () {
-    Route::get('/admin/profile', [AdminProfileController::class, 'edit'])->name('admin.profile.edit');
-    Route::patch('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
-    Route::delete('/admin/profile', [AdminProfileController::class, 'destroy'])->name('admin.profile.destroy');
 });
 
 // Ini memuat semua rute bawaan untuk login, register, lupa password, dll.

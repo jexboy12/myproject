@@ -13,7 +13,8 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('admin.profile.update') }}" class="mt-6 space-y-6">
+    {{-- UBAH ACTION INI --}}
+    <form method="post" action="{{ route('dashboard.profile.update') }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
