@@ -6,18 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    {{-- Tambahkan link Google Fonts untuk font 'Inter' di sini --}}
+    {{-- REVISI: Mengambil Judul dari .env dan Menampilkan Judul Halaman --}}
+    <title>{{ $title ? $title . ' - ' : '' }}{{ config('app.name', 'Laravel') }}</title>
+
+    {{-- REVISI: Menambahkan Logo/Favicon --}}
+    <link rel="icon" href="{{ asset('img/logo2.png') }}" type="image/png">
+
+    {{-- Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" scrossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.3/photoswipe.min.css">
 
-    {{-- Ini mengimpor Inter dengan ketebalan 400 (normal), 500 (medium), 600 (semibold), 700 (bold) --}}
+    {{-- REVISI: Mengganti @vite dengan kode manual yang lebih stabil --}}
+    @php
+        $manifestPath = public_path('build/manifest.json');
+        $manifest = file_exists($manifestPath) ? json_decode(file_get_contents($manifestPath), true) : [];
+    @endphp
 
-    @vite('resources/css/app.css')
+    @if (!empty($manifest) && isset($manifest['resources/css/app.css']))
+        <link rel="stylesheet" href="{{ asset('build/' . $manifest['resources/css/app.css']['file']) }}">
+    @endif
 
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    @if (!empty($manifest) && isset($manifest['resources/js/app.js']))
+        <script type="module" src="{{ asset('build/' . $manifest['resources/js/app.js']['file']) }}"></script>
+    @endif
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     {{-- Gaya untuk tombol gulir ke atas --}}
     <style>
@@ -116,7 +132,7 @@
  <x-navbar></x-navbar>
 
   <main>
-    <div class="mx-auto max-w-7xl px-4 py-0 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl py-0 sm:px-6 lg:px-8">
        {{ $slot }}
     </div>
   </main>

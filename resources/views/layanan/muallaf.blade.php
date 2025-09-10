@@ -3,7 +3,7 @@
 
     {{-- Hero Section untuk Layanan Jadi Muallaf --}}
     {{-- Tambahkan rounded-b-lg di sini untuk membuat sudut bawah tumpul --}}
-    <div class="relative bg-green-600 h-72 flex items-center justify-center rounded-b-lg"> {{-- Perubahan di sini: rounded-b-lg --}}
+    <div class="relative bg-green-600 h-72 flex items-center justify-center"> {{-- Perubahan di sini: rounded-b-lg --}}
         <div class="absolute inset-0 bg-black opacity-30"></div> {{-- Mengurangi opacity overlay agar hijau lebih terlihat --}}
         <div class="relative z-10 text-white text-center px-4">
             <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-3">Layanan Pembinaan Muallaf</h1>
@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-2 py-8 sm:px-6 lg:px-8">
         {{-- Kotak konten putih ini sudah memiliki rounded-lg --}}
         <div class="bg-white p-8 rounded-lg shadow-xl -mt-16 relative z-20">
             <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-green-600 pb-2 text-center">Selamat Datang Saudara Baru Kami</h2>
@@ -41,8 +41,7 @@
                     </div>
 
                     <div class="md:col-span-1 flex flex-col space-y-4">
-                        <img src="{{ asset('img/muallaf-bimbingan-1.jpg') }}" alt="Bimbingan Muallaf" class="w-full h-auto rounded-lg shadow-md object-cover">
-                        <img src="{{ asset('img/muallaf-bimbingan-2.jpg') }}" alt="Diskusi Muallaf" class="w-full h-auto rounded-lg shadow-md object-cover">
+                        <img src="{{ asset('img/diskusi-muallaf.jpg') }}" alt="Diskusi Muallaf" class="w-full h-auto rounded-lg shadow-md object-cover">
                     </div>
                 </div>
 
@@ -74,7 +73,7 @@
                 </p>
                 <ul class="list-none mb-4">
                     <li><strong>Nomor Telepon:</strong> 082123678056</li>
-                    <li><strong>Email:</strong> rijalfuady22@gmail.com</li>
+                    <li><strong>Email:</strong> masjid.jamialikhlas@gmail.com</li>
                     <li><strong>Jadwal Konsultasi:</strong> Setiap hari kerja, Pukul 09.00 - 15.00 WIB</li>
                 </ul>
                 <p class="italic text-gray-600">

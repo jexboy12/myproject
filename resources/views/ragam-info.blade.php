@@ -11,7 +11,8 @@
                     <article class="flex flex-col md:flex-row items-start gap-8">
                         <div class="w-full md:w-1/3 flex-shrink-0">
                             <a href="{{ route('ragam.info.show', $post) }}">
-                                <img src="{{ $post->image ? asset('storage/' . $post->image) : 'https://placehold.co/600x400/E5E7EB/1F2937?text=Gambar' }}" 
+                                {{-- PERUBAHAN DI SINI --}}
+                                <img src="{{ $post->image ? asset('storage/' . $post->image) : asset('img/logo-masjidd.jpg') }}" 
                                      alt="{{ $post->title }}" 
                                      class="w-full h-48 object-cover rounded-lg shadow-md hover:opacity-80 transition-opacity">
                             </a>

@@ -21,10 +21,6 @@ Route::get('/profile', function () {
     return view('profile.sejarah', ['title' => 'Profil Masjid']);
 })->name('profile');
 
-Route::get('/prima', function () {
-    return view('prima', ['title' => 'Prima']);
-})->name('prima');
-
 Route::get('/kegiatan', function () {
     return view('kegiatan', ['title' => 'Kegiatan']);
 })->name('kegiatan');
@@ -52,9 +48,6 @@ Route::view('/profile/pewakaf', 'profile.pewakaf')->name('profile.pewakaf');
 Route::view('/profile/visi-misi', 'profile.visi-misi')->name('profile.visi');
 Route::view('/profile/struktural', 'profile.struktural')->name('profile.struktural');
 Route::view('/profile/imam-muadzin', 'profile.imam-muadzin')->name('profile.imam');
-Route::view('/prima/sejarah', 'prima.sejarah')->name('prima.sejarah');
-Route::view('/prima/visi-misi', 'prima.visi-misi')->name('prima.visi-misi');
-Route::view('/prima/pengurus', 'prima.pengurus')->name('prima.pengurus');
 Route::view('/kegiatan/kuliah-subuh', 'kegiatan.kuliah-subuh')->name('kegiatan.kuliah-subuh');
 Route::view('/kegiatan/ibu-ibu', 'kegiatan.ibu-ibu')->name('kegiatan.ibu-ibu');
 Route::view('/kegiatan/hari-besar', 'kegiatan.hari-besar')->name('kegiatan.hari-besar');
@@ -70,9 +63,6 @@ Route::view('/beranda-baru', 'halaman-beranda')->name('halaman.beranda.baru');
 */
 
 // --- Rute untuk semua pengguna yang sudah login (termasuk admin) ---
-// Ini adalah rute profil umum yang bisa diakses oleh setiap pengguna yang login (termasuk admin)
-// Jika /admin/profile tidak lagi diperlukan karena admin akan menggunakan /dashboard untuk profilnya,
-// maka bagian ini bisa dihapus atau disesuaikan. Untuk saat ini, kita anggap tetap ada untuk non-admin.
 Route::middleware('auth')->group(function () {
     Route::get('/admin/profile', [AdminProfileController::class, 'edit'])->name('admin.profile.edit');
     Route::patch('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
@@ -82,11 +72,9 @@ Route::middleware('auth')->group(function () {
 
 // --- Rute yang hanya bisa diakses oleh ADMIN ---
 Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
-    // Dashboard utama admin (sekarang menjadi halaman profil admin)
-    // URI /dashboard kini mengarah ke halaman profil admin.
     Route::get('/dashboard', [AdminProfileController::class, 'edit'])->name('dashboard');
-    Route::patch('/dashboard/profile', [AdminProfileController::class, 'update'])->name('dashboard.profile.update'); // Update profile via new dashboard path
-    Route::delete('/dashboard/profile', [AdminProfileController::class, 'destroy'])->name('dashboard.profile.destroy'); // Delete profile via new dashboard path
+    Route::patch('/dashboard/profile', [AdminProfileController::class, 'update'])->name('dashboard.profile.update');
+    Route::delete('/dashboard/profile', [AdminProfileController::class, 'destroy'])->name('dashboard.profile.destroy');
 
     // Rute untuk manajemen Galeri
     Route::prefix('admin/gallery')->name('admin.gallery.')->group(function () {
@@ -96,9 +84,8 @@ Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     });
 
     // Grup untuk semua rute manajemen Ragam Info
-    // Rute index Ragam Info dipindahkan ke sini
     Route::prefix('admin/ragam-info')->name('admin.ragam-info.')->group(function () {
-        Route::get('/', [AdminRagamInfoController::class, 'index'])->name('index'); // New path for Ragam Info Management
+        Route::get('/', [AdminRagamInfoController::class, 'index'])->name('index');
         Route::get('/create', [AdminRagamInfoController::class, 'create'])->name('create');
         Route::post('/store', [AdminRagamInfoController::class, 'store'])->name('store');
         Route::get('/{ragamInfo}/edit', [AdminRagamInfoController::class, 'edit'])->name('edit');
@@ -107,5 +94,4 @@ Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     });
 });
 
-// Ini memuat semua rute bawaan untuk login, register, lupa password, dll.
 require __DIR__.'/auth.php';

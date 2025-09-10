@@ -1,22 +1,21 @@
 <x-layout>
     <x-slot name="title">{{ $title ?? 'Profil Masjid' }}</x-slot>
 
-    {{-- INI ADALAH BAGIAN HERO SECTION YANG MENJADI BACKGROUND GAMBAR --}}
-    {{-- Pastikan URL gambar di bawah ini mengarah ke file gambar Anda yang ada di public/img/ --}}
-    <div class="relative bg-cover bg-center h-96 flex items-center justify-center" style="background-image: url('{{ asset('img/masjid_detail.jpg') }}');">
-        <div class="absolute inset-0 bg-black opacity-60"></div> {{-- Overlay gelap untuk teks agar mudah dibaca --}}
-        <div class="relative z-10 text-white text-center px-4">
-            <h1 class="text-5xl font-extrabold leading-tight mb-4 animate-fade-in-up">Masjid Jami' Al-Ikhlash</h1>
-            <p class="text-xl font-light max-w-3xl mx-auto opacity-0 animate-fade-in" style="animation-delay: 0.5s;">
-                Menjelajahi Sejarah, Visi, Misi, dan Tokoh-tokoh di Balik Kemakmuran Masjid Kita.
+    {{-- HERO SECTION BARU DENGAN BACKGROUND HIJAU --}}
+    <div class="relative bg-green-600 h-72 flex items-center justify-center">
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+        <div class="relative z-10 text-white text-center px-2">
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-3">Sejarah Masjid</h1>
+            <p class="text-lg md:text-xl font-light max-w-2xl mx-auto">
+                Menelusuri Jejak Langkah dan Awal Mula Berdirinya Masjid Jami' Al-Ikhlash
             </p>
         </div>
     </div>
 
-    <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-2 py-8 sm:px-6 lg:px-8">
         {{-- INI ADALAH KOTAK KONTEN PUTIH YANG AKAN OVERLAP DENGAN HERO SECTION --}}
-        <div class="bg-white p-8 rounded-lg shadow-xl -mt-24 relative z-20">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-green-600 pb-2 text-center">SEJARAH MASJID JAMI' AL-IKHLASH</h2>
+        <div class="bg-white p-8 rounded-lg shadow-xl -mt-16 relative z-20">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-green-600 pb-2 text-center">Profil Singkat Masjid Jami' Al-Ikhlash</h2>
 
             {{-- Menggunakan flexbox untuk menempatkan teks dan gambar bersebelahan --}}
             <div class="flex flex-col md:flex-row items-start md:space-x-8 prose max-w-none text-gray-700 leading-relaxed mb-8">
@@ -28,7 +27,6 @@
                     <p class="mb-4">
                         Melalui profil ini, Anda akan menemukan informasi menyeluruh mengenai berbagai aspek utama dari Masjid Jami’ Al-Ikhlas. Mulai dari sejarah pembangunannya yang penuh inspirasi, visi dan misi yang menjadi pedoman arah gerak, hingga sosok-sosok pengurus yang berdedikasi, serta para imam dan muadzin yang setia membimbing jamaah dalam setiap pelaksanaan ibadah. Semoga informasi yang tersaji dapat mempererat tali silaturahmi dan meningkatkan kecintaan kita terhadap rumah Allah SWT.
                     </p>
-                    
                 </div>
                 
                 {{-- Bagian Gambar (akan memenuhi lebar penuh di mobile, 1/3 di desktop) --}}

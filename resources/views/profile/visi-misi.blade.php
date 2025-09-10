@@ -6,7 +6,7 @@
         :currentPageTitle="'Visi Misi'" 
     />
 
-    <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-2 py-4 sm:px-0 lg:px-4">
         <div class="bg-white p-8 rounded-xl shadow-xl mt-8">
 
           
@@ -18,10 +18,6 @@
                     </p>
                 </div>
 
-                <div class="md:col-span-1 flex justify-center items-center">
-                    {{-- Pastikan Anda memiliki gambar ini di public/img/ --}}
-                    <img src="{{ asset('img/masjid-visi-misi.jpg') }}" alt="Ilustrasi Visi Masjid" class="w-full h-auto rounded-lg shadow-md object-cover">
-                </div>
             </div>
 
             {{-- Bagian Misi (Tanpa Foto) --}}

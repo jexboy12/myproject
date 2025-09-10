@@ -19,7 +19,7 @@
                 <a href="{{ route('layanan.akad-nikah') }}" class="block">
                     <div class="bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                         {{-- Ganti gambar di folder public/img/ --}}
-                        <img src="{{ asset('img/layanan-nikah.jpg') }}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E5E7EB/1F2937?text=Akad+Nikah';" alt="Gambar Layanan Akad Nikah" class="w-full h-48 object-cover rounded-t-xl">
+                        <img src="{{ asset('img/layanan-nikah.png') }}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E5E7EB/1F2937?text=Akad+Nikah';" alt="Gambar Layanan Akad Nikah" class="w-full h-48 object-cover rounded-t-xl">
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-gray-900 mb-2">Acara Akad Nikah</h3>
                             <p class="text-gray-700 text-sm">Menyediakan fasilitas dan dukungan untuk menyelenggarakan momen sakral pernikahan yang berkah.</p>

@@ -169,7 +169,6 @@
         </div>
     </section>
 
-    {{-- JavaScript untuk Slider Hero (TIDAK DIHAPUS) --}}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const slides = document.querySelectorAll('.hero-slide');

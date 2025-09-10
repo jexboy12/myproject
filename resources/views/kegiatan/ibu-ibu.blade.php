@@ -1,12 +1,8 @@
 <x-layout>
    <x-slot name="title">{{ $title ?? 'Pengajian Ibu-Ibu' }}</x-slot>
    
-    <x-header
-        :title="'Visi dan Misi PRIMA'" 
-        :currentPageTitle="'Visi Misi'" 
-    />
 
-    <div class="relative bg-green-600 h-72 flex items-center justify-center rounded-b-lg">
+    <div class="relative bg-green-600 h-72 flex items-center justify-center">
         <div class="absolute inset-0 bg-black opacity-30"></div>
         <div class="relative z-10 text-white text-center px-4">
             <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-3">Pengajian Ibu-Ibu</h1>
@@ -16,7 +12,7 @@
         </div>
         
     </div>
-      <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl px-2 py-8 sm:px-6 lg:px-8">
         <div class="bg-white p-8 rounded-lg shadow-xl -mt-16 relative z-20">
             <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-green-600 pb-2 text-center">Kegiatan Mingguan Rutin Ibu-Ibu</h2>
 

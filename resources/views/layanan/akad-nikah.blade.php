@@ -1,9 +1,8 @@
 <x-layout>
     <x-slot name="title">{{ $title ?? 'Layanan Akad Nikah' }}</x-slot>
 
-    {{-- Hero Section untuk Layanan Akad Nikah (warna hijau solid, tidak ada rounded di sini) --}}
-    <div class="relative bg-green-600 h-72 flex items-center justify-center"> {{-- Dihapus: rounded-b-lg --}}
-        <div class="absolute inset-0 bg-black opacity-30"></div>
+    <div class="relative bg-green-600 h-72 flex items-center justify-center">
+        <div class="absolute inset-0 bg-black opacity-30"></div> {{-- Mengurangi opacity overlay agar hijau lebih terlihat --}}
         <div class="relative z-10 text-white text-center px-4">
             <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-3">Layanan Acara Akad Nikah</h1>
             <p class="text-lg md:text-xl font-light max-w-2xl mx-auto">
@@ -12,7 +11,7 @@
         </div>
     </div>
 
-    <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-2 py-8 sm:px-6 lg:px-8">
         {{-- Kotak konten putih (diubah dari rounded-lg menjadi rounded-xl) --}}
         <div class="bg-white p-8 rounded-xl shadow-xl -mt-16 relative z-20"> {{-- Perubahan di sini: rounded-xl --}}
             <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-green-600 pb-2 text-center">Selamat Datang Calon Pengantin</h2>
@@ -64,9 +63,9 @@
                     Untuk informasi lebih lanjut mengenai biaya, ketersediaan jadwal, atau pertanyaan lainnya, silakan hubungi kami:
                 </p>
                 <ul class="list-none mb-4">
-                    <li><strong>Nomor Telepon:</strong> [Nomor Telepon Layanan]</li>
-                    <li><strong>Email:</strong> [Alamat Email Layanan]</li>
-                    <li><strong>Alamat Kantor DKM:</strong> [Alamat Lengkap Kantor DKM jika berbeda]</li>
+                    <li><strong>Nomor Telepon:</strong> 082123678056</li>
+                    <li><strong>Email:</strong> masjid.jamialikhlas@gmail.com</li>
+                    <li><strong>Alamat Kantor DKM:</strong> Jl. Usman, Randu I, RT 05 / RW 04</li>
                 </ul>
                 <p class="italic text-gray-600">
                     Kami sangat menantikan untuk menjadi bagian dari hari bahagia Anda. Jazakumullah Khairan Katsiran.

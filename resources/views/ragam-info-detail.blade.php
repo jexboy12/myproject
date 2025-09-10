@@ -6,7 +6,8 @@
     <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div class="bg-white p-8 rounded-xl shadow-xl mt-2">
             <article>
-                <img src="{{ $post->image ? asset('storage/' . $post->image) : 'https://placehold.co/1200x600/E5E7EB/1F2937?text=Gambar' }}" 
+                {{-- PERUBAHAN DI SINI --}}
+                <img src="{{ $post->image ? asset('storage/' . $post->image) : asset('img/logo-masjidd.jpg') }}" 
                      alt="{{ $post->title }}" 
                      class="w-full h-auto max-h-[450px] object-cover rounded-lg shadow-md mb-6">
 

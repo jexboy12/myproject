@@ -20,7 +20,7 @@
             </a>
             {{-- X / Twitter --}}
             <a href="https://x.com/YOUR_X_USERNAME" target="_blank" class="hover:opacity-75 transition-opacity duration-200">
-                <img src="{{ asset('img/x.jpg') }}" alt="X" class="h-8 w-8 object-contain">
+                <img src="{{ asset('img/X.jpg') }}" alt="X" class="h-8 w-8 object-contain">
             </a>
             {{-- WhatsApp --}}
             <a href="https://wa.me/6282123678056" target="_blank" class="hover:opacity-75 transition-opacity duration-200">

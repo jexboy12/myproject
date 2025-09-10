@@ -1,7 +1,7 @@
 <x-layout>
 <x-header :title="'Pewakaf Masjid'" />
 
-<div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+<div class="mx-auto max-w-7xl px-2 py-4 sm:px-6 lg:px-8">
     <div class="bg-white p-8 rounded-xl shadow-xl mt-8">
        <div class="flex flex-col md:flex-row items-center md:items-start md:space-x-8">
             <div class="md:w-1/3 mb-6 md:mb-0">
